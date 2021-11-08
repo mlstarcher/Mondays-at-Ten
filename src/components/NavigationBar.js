@@ -1,8 +1,13 @@
-import React from 'react';
-import { Nav, Navbar, Container } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Nav, Navbar, Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function NavigationBar() {
+
+  function handleLogout() {
+
+  }
+
   return (
     <div>
       <Navbar bg="dark" expand="lg" collapseOnSelect>
@@ -15,10 +20,8 @@ export default function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse>
           <Nav  className="ms-auto">
-            {/* <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/about">About Us</Nav.Link>
-            <Nav.Link as={Link} to="/staff">Our Staff</Nav.Link>
-            <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link> */}
+            <Nav.Link as={Link} to="/home">Home</Nav.Link>
+            <Nav.Link as={Link} to="/home/profile">Profile</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         </Container>
