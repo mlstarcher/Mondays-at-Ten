@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 
 const AuthContext = React.createContext()
 
@@ -13,40 +13,15 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   function signup(email, password) {
-    console.log('signup ', email, password)
-    createUserWithEmailAndPassword(auth, email, password)
-      // .then((userCredential) => {
-      //   // Signed in
-      //   const user = userCredential.user;
-      //   setCurrentUser(user)
-      //   // ...
-      // })
-      // .catch((error) => {
-      //   console.log('error: ', error)
-      //   // const errorCode = error.code;
-      //   // const errorMessage = error.message;
-      //   // ..
-      // });
-    return;
+    return createUserWithEmailAndPassword(auth, email, password)
   }
 
   function login(email, password) {
-    console.log('log in: ', email, password)
-    signInWithEmailAndPassword(auth, email, password)
-    // .then((userCredential) => {
-    //   // Signed in
-    //   const user = userCredential.user;
-    //   setCurrentUser(user)
-    //   console.log('log in current user: ', JSON.stringify(currentUser))
-    //   // ...
-    // })
-    // .catch((error) => {
-    //   console.log('error: ', error)
-    //   // const errorCode = error.code;
-    //   // const errorMessage = error.message;
-    //   // ..
-    // });
-    return;
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  function logOut() {
+    return signOut(auth);
   }
 
   useEffect(() => {
@@ -60,7 +35,8 @@ export function AuthProvider({ children }) {
   const value = {
     currentUser,
     signup,
-    login
+    login,
+    logOut
   }
 
   return (
