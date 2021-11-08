@@ -1,14 +1,15 @@
 import React from 'react';
-import { Nav, Navbar, Container, Image } from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
 
 export default function NavigationBar() {
   return (
     <div>
-      <Navbar bg="light" expand="lg" collapseOnSelect>
+      <Navbar bg="dark" expand="lg" collapseOnSelect>
         <Container>
             <Navbar.Brand>
-            <Image src="/images/OurNestLogo.png" alt="Our Nest Logo" height="100" />
+            {/* <Image src="/images/OurNestLogo.png" alt="Our Nest Logo" height="100" /> */}
+            <h1 className="text-secondary">M@X</h1>
             </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>

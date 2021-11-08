@@ -18,10 +18,9 @@ export default function Login() {
       setError('')
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
-      navigate.push('/')
+        navigate('/home')
     } catch {
       setError('Failed to sign in')
-
     }
     setLoading(false)
   }
